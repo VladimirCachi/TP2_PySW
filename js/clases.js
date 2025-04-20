@@ -1,5 +1,3 @@
-// js/clases.js
-
 document.addEventListener("DOMContentLoaded", () => {
   const botonesFiltro = document.querySelectorAll(".filtros .filtro");
   const itemsClases = document.querySelectorAll(".grid-clases .col.clase-item");

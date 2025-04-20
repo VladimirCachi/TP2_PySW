@@ -1,7 +1,3 @@
-// js/home.js
-
-// Asegúrate de que jQuery esté cargado antes de ejecutar este script.
-// El código se envuelve en $(document).ready() para garantizar que el DOM esté listo.
 $(document).ready(function() {
 
     // --- Animación del Overlay del Hero ---

@@ -1,5 +1,3 @@
-// js/blog.js
-
 $(document).ready(function() {
 
   // --- Filtros por Tags ---

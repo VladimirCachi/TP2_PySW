@@ -1,5 +1,3 @@
-// js/precios.js
-
 $(document).ready(function() {
 
     // --- Inicializar Tooltips de Bootstrap ---

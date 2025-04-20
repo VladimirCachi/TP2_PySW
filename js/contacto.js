@@ -1,5 +1,3 @@
-// js/contacto.js
-
 $(document).ready(function() {
 
   const form = $('#formularioContacto');
