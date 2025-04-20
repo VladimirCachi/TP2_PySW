@@ -1,0 +1,148 @@
+/* clases.css - Estilos específicos para la página de clases */
+
+/* --- Contenido Principal --- */
+.contenido-clases {
+  /* padding ya aplicado en el main con Bootstrap (py-5) */
+}
+.contenido-clases h1 {
+  color: var(--color-actual-principal); /* Usa variable dinámica */
+}
+
+/* --- Filtros --- */
+.filtros .filtro {
+  /* Usamos clases btn de Bootstrap como base */
+  border-radius: 20px; /* Más redondeado */
+  margin: 0.25rem; /* Espacio entre botones */
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s, transform 0.2s;
+}
+.filtros .filtro:hover {
+  transform: scale(1.05);
+}
+/* Estilo activo para botones de filtro (Bootstrap lo maneja si usas JS para añadir/quitar 'active') */
+/* Si usas tu propio JS con clase 'activo': */
+.filtros .filtro.activo {
+  background-color: var(--color-actual-principal);
+  border-color: var(--color-actual-principal);
+  color: #fff; /* Texto blanco en activo */
+  transform: scale(1.05);
+}
+/* Ajuste para modo claro si el btn-outline-secondary no es suficiente */
+[data-bs-theme="light"] .filtros .filtro {
+    /* color: var(--bs-secondary-color); */
+    /* border-color: var(--bs-secondary-color); */
+}
+[data-bs-theme="light"] .filtros .filtro:hover {
+    /* background-color: var(--bs-secondary-bg-subtle); */
+}
+[data-bs-theme="light"] .filtros .filtro.activo {
+    background-color: var(--color-actual-principal);
+    border-color: var(--color-actual-principal);
+    color: #fff;
+}
+
+
+/* --- Grid de Clases (Galería) --- */
+.grid-clases {
+  /* Bootstrap .row ya maneja el layout */
+}
+.clase-item .card {
+  /* Hereda estilos de .card de Bootstrap y home.css */
+  position: relative; /* Para el overlay */
+  overflow: hidden; /* Para el overlay y zoom de imagen */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto Zoom y Overlay en Tarjetas */
+.clase-item .card::after { /* Pseudo-elemento para overlay */
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0); /* Inicialmente transparente */
+  transition: background-color 0.3s ease;
+  pointer-events: none; /* Permite hacer clic en la tarjeta */
+  z-index: 1; /* Encima de la imagen pero debajo del texto */
+}
+.clase-item .card:hover {
+  transform: scale(1.03); /* Ligero zoom a toda la tarjeta */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.25); /* Sombra más pronunciada */
+}
+.clase-item .card:hover::after {
+  background-color: rgba(0, 0, 0, 0.3); /* Overlay oscuro semitransparente */
+}
+.clase-item .card .card-body {
+    position: relative; /* Para que el texto esté sobre el overlay */
+    z-index: 2;
+}
+/* Opcional: Aclarar texto en hover si el overlay oscurece mucho */
+/*
+.clase-item .card:hover .card-title,
+.clase-item .card:hover .card-text {
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+*/
+
+/* Ocultamiento dinámico para filtros JS */
+.clase-item.oculto {
+  /* display: none; */ /* Esto quita la animación */
+  /* Mejor animar la desaparición */
+  transition: opacity 0.3s ease, transform 0.3s ease, max-height 0.5s ease;
+  opacity: 0;
+  transform: scale(0.9);
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  overflow: hidden;
+  /* Importante: Asegúrate que el contenedor .col no tenga padding/margin que interfiera */
+  border: none; /* Evita que el borde se vea durante la animación */
+}
+
+
+/* --- Sección de Horarios --- */
+.horarios {
+  /* py-5 y bg-body-tertiary aplicados en HTML */
+}
+.horarios h2 {
+  /* Estilo consistente con otros títulos */
+  color: var(--bs-body-emphasis-color); /* Color de texto enfatizado */
+}
+
+/* Tabla de Horarios (Bootstrap .table-responsive maneja el scroll) */
+.tabla-horarios {
+  /* Clases de Bootstrap aplicadas en HTML: table, table-bordered, etc. */
+  /* Puedes añadir estilos específicos si Bootstrap no es suficiente */
+  font-size: 0.9rem; /* Texto un poco más pequeño en la tabla */
+}
+.tabla-horarios thead.table-dark {
+    /* Bootstrap maneja el estilo oscuro */
+    /* Puedes forzar tu color principal si lo prefieres */
+    /* background-color: var(--color-actual-principal); */
+    /* border-color: var(--color-actual-principal); */
+}
+.tabla-horarios th[scope="row"] { /* Cabecera de fila (Días) */
+    background-color: var(--bs-tertiary-bg); /* Fondo sutil */
+}
+
+/* --- Media Queries Específicas para Clases (si son necesarias) --- */
+@media (max-width: 768px) {
+  .filtros {
+    margin-bottom: 3rem; /* Reducir margen en móvil */
+  }
+  .tabla-horarios {
+    font-size: 0.8rem; /* Texto aún más pequeño en móvil */
+  }
+}
+
+@media (max-width: 576px) {
+  .filtros .filtro {
+    font-size: 0.85rem; /* Botones de filtro más pequeños */
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+.grid-clases.grid-centered {
+  justify-content: center; /* Centra los items flexibles (las columnas .col) en la fila .row */
+}

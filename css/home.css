@@ -1,0 +1,437 @@
+/* home.css - Refactorizado para Bootstrap data-bs-theme */
+
+/* --- Variables CSS --- */
+/* Definimos los valores por defecto (Modo Oscuro) */
+:root {
+  --color-principal: #ff5e57; /* Rojo principal */
+  --color-secundario-dark: #1e1e2f; /* Azul oscuro/morado para fondos secundarios */
+  --color-fondo-dark: #111; /* Negro/gris muy oscuro para fondo principal */
+  --color-texto-dark: #fff; /* Blanco para texto principal */
+  --color-texto-secundario-dark: #ccc; /* Gris claro para texto secundario */
+  --color-card-dark: #2a2a3a; /* Fondo de las cards */
+  --color-testimonios-dark: #1a1a1a; /* Fondo sección testimonios */
+  --color-input-dark: #333; /* Fondo inputs */
+
+  /* Variables para modo claro (se definirán abajo) */
+  --color-principal-light: #d60000; /* Rojo más oscuro para modo claro */
+  --color-secundario-light: #f8f9fa; /* Gris muy claro (Bootstrap bg-light) */
+  --color-fondo-light: #ffffff; /* Blanco */
+  --color-texto-light: #212529; /* Negro/gris oscuro (Bootstrap default) */
+  --color-texto-secundario-light: #6c757d; /* Gris (Bootstrap text-muted) */
+  --color-card-light: #ffffff; /* Blanco para cards */
+  --color-testimonios-light: #f9f9f9; /* Fondo claro testimonios */
+  --color-input-light: #fff; /* Fondo inputs */
+  --color-input-border-light: #ced4da; /* Borde inputs */
+
+  --font-main: 'Segoe UI', sans-serif;
+
+  /* --- Asignación inicial (Modo Oscuro por defecto) --- */
+  --bs-body-bg: var(--color-fondo-dark);
+  --bs-body-color: var(--color-texto-dark);
+  --bs-secondary-bg: var(--color-secundario-dark); /* Usado para header, footer, etc. */
+  --bs-tertiary-bg: var(--color-card-dark); /* Usado para cards, etc. */
+  --bs-primary-rgb: 255, 94, 87; /* Para que Bootstrap genere variantes del rojo principal */
+  --bs-link-color: var(--color-principal);
+  --bs-link-hover-color: #ff8a84; /* Un rojo más claro para hover */
+  --color-actual-principal: var(--color-principal); /* Variable dinámica */
+  --color-actual-texto: var(--color-texto-dark);
+  --color-actual-texto-secundario: var(--color-texto-secundario-dark);
+  --color-actual-fondo-testimonios: var(--color-testimonios-dark);
+  --color-actual-input-bg: var(--color-input-dark);
+  --color-actual-input-color: var(--color-texto-dark);
+  --color-actual-input-border: transparent;
+}
+
+/* --- Definiciones para Modo Claro --- */
+[data-bs-theme="light"] {
+  --bs-body-bg: var(--color-fondo-light);
+  --bs-body-color: var(--color-texto-light);
+  --bs-secondary-bg: var(--color-secundario-light);
+  --bs-tertiary-bg: var(--color-card-light);
+  --bs-primary-rgb: 214, 0, 0; /* Rojo más oscuro */
+  --bs-link-color: var(--color-principal-light);
+  --bs-link-hover-color: #a00000; /* Rojo aún más oscuro para hover */
+  --color-actual-principal: var(--color-principal-light);
+  --color-actual-texto: var(--color-texto-light);
+  --color-actual-texto-secundario: var(--color-texto-secundario-light);
+  --color-actual-fondo-testimonios: var(--color-testimonios-light);
+  --color-actual-input-bg: var(--color-input-light);
+  --color-actual-input-color: var(--color-texto-light);
+  --color-actual-input-border: var(--color-input-border-light);
+
+  /* Sobrescribir colores específicos de Bootstrap si es necesario */
+  /* .navbar { background-color: var(--bs-secondary-bg) !important; } */
+  /* footer { background-color: #e1e1e1 !important; } */ /* Ejemplo si quieres un gris específico */
+}
+
+/* --- Estilos Generales --- */
+body {
+  margin: 0;
+  font-family: var(--font-main);
+  background-color: var(--bs-body-bg); /* Usa variable Bootstrap */
+  color: var(--bs-body-color); /* Usa variable Bootstrap */
+  transition: background-color 0.3s, color 0.3s;
+  padding-top: 56px; /* Ajuste para navbar fijo (ya lo tenías en index) */
+}
+
+/* --- Botón Modo Oscuro/Claro --- */
+.boton-modo {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: var(--color-actual-principal); /* Usa variable dinámica */
+  color: #fff; /* Mantenemos blanco para mejor contraste con el rojo */
+  border: none;
+  font-size: 1.3rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1050; /* Encima del navbar de Bootstrap */
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  transition: background 0.3s, transform 0.2s;
+}
+.boton-modo:hover {
+  /* background: #b00000; */ /* Podrías usar una variable para el hover también */
+  filter: brightness(0.8); /* Oscurecer un poco al hacer hover */
+  transform: scale(1.1);
+}
+
+/* --- HEADER (Navbar Bootstrap) --- */
+/* Bootstrap maneja el color de fondo con bg-body-tertiary, que se adapta */
+/* Puedes forzar un color si lo prefieres: */
+/*
+.navbar {
+  background-color: var(--bs-secondary-bg) !important;
+}
+*/
+.navbar .logo {
+  font-size: 1.8rem;
+  color: var(--color-actual-principal); /* Usa variable dinámica */
+  margin: 0;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+/* Estilos para enlaces del menú (Bootstrap los maneja bien, pero puedes ajustar) */
+.navbar .nav-link {
+  /* color: var(--bs-body-color); */ /* Hereda color del body */
+  transition: color 0.3s;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 0.3rem; /* Ajuste para la línea */
+}
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  color: var(--color-actual-principal);
+  border-bottom-color: var(--color-actual-principal);
+}
+/* Estilos dropdown */
+.dropdown-menu {
+    /* Bootstrap adapta los colores del dropdown con data-bs-theme */
+    /* Puedes añadir estilos específicos si quieres */
+    border: 1px solid rgba(var(--bs-emphasis-color-rgb), 0.15); /* Borde sutil */
+}
+.dropdown-item:hover {
+    background-color: rgba(var(--bs-primary-rgb), 0.1); /* Fondo suave al pasar el mouse */
+    color: var(--bs-primary); /* Color principal al pasar el mouse */
+}
+
+
+/* --- HERO --- */
+.hero {
+  position: relative;
+  height: 80vh;
+  min-height: 400px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff; /* Texto siempre blanco sobre video/overlay */
+}
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  /* filter: brightness(0.5); */ /* El overlay ya oscurece */
+}
+.hero .overlay { /* El overlay que contiene el texto */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente oscuro */
+  display: flex; /* Necesario para centrar hero-content */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  z-index: 1;
+  opacity: 0; /* JS lo anima */
+}
+.hero-content { /* Contenedor del texto y botón dentro del overlay */
+    display: none; /* JS lo anima */
+}
+.hero-text {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  color: #fff;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  margin-bottom: 1.5rem;
+  /* La animación la hace JS ahora con fadeIn, quitamos la de CSS */
+}
+.boton-hero {
+  display: inline-block;
+  background-color: var(--color-actual-principal);
+  color: #ffffff;
+  padding: 12px 28px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  border: 2px solid var(--color-actual-principal);
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, border-color 0.3s;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.boton-hero:hover {
+  background-color: transparent;
+  color: var(--color-actual-principal);
+  border-color: var(--color-actual-principal);
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* --- CLASES DESTACADAS (Bootstrap Cards) --- */
+.clases {
+  padding: 4rem 2rem;
+  text-align: center;
+  /* Bootstrap adapta bg-body-tertiary, pero si quieres tu color secundario: */
+  background-color: var(--bs-secondary-bg);
+  color: var(--bs-body-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+.clases h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+/* Estilos para las cards (Bootstrap .card) */
+.clases .card {
+  /* background: var(--bs-tertiary-bg); */ /* Bootstrap lo maneja */
+  /* color: var(--bs-body-color); */ /* Bootstrap lo maneja */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* border: none; */ /* Quitar borde por defecto si quieres */
+  /* overflow: hidden; */ /* Bootstrap ya lo tiene */
+}
+.clases .card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  /* Opcional: Cambiar fondo al hacer hover */
+  /* background: var(--color-actual-principal); */
+  /* color: #fff; */
+}
+/* Asegurar que el texto dentro de la card use los colores correctos */
+.clases .card .card-title {
+    /* color: var(--bs-body-emphasis-color); */ /* Color más fuerte */
+}
+.clases .card .card-text {
+    /* color: var(--bs-body-secondary-color); */ /* Color secundario */
+}
+.clases .card .card-footer {
+    /* background-color: transparent; */ /* Fondo transparente */
+    /* border-top: 1px solid var(--bs-border-color); */ /* Borde sutil */
+}
+
+
+/* --- CONTADOR ANIMADO --- */
+/* Usamos bg-body-tertiary en HTML que se adapta, si quieres el color principal: */
+.contador {
+  background: var(--color-actual-principal);
+  text-align: center;
+  padding: 3rem 2rem;
+  font-size: 2.2rem;
+  color: #fff; /* Texto siempre blanco sobre fondo principal */
+  transition: background-color 0.3s;
+}
+.contador h2 {
+    margin: 0;
+    font-weight: 600;
+}
+.contador .numero {
+  font-weight: bold;
+}
+
+/* --- TESTIMONIOS (Bootstrap Carousel) --- */
+.testimonios-seccion {
+  padding: 4rem 2rem;
+  text-align: center;
+  background-color: var(--color-actual-fondo-testimonios); /* Variable dinámica */
+  transition: background-color 0.3s;
+  overflow-x: hidden; /* Evita scroll horizontal */
+}
+.testimonios-seccion h2 {
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+  color: var(--bs-body-color); /* Usa color del body */
+}
+/* Estilos internos del carrusel */
+.testimonios-seccion .carousel-item {
+    padding: 40px 20px;
+    text-align: center;
+    min-height: 150px; /* Altura mínima */
+}
+.testimonios-seccion .testimonio p {
+  font-style: italic;
+  margin-bottom: 1rem;
+  color: var(--bs-body-secondary-color); /* Color secundario del body */
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+.testimonios-seccion .testimonio span {
+  font-weight: bold;
+  color: var(--bs-body-emphasis-color); /* Color más fuerte del body */
+  margin-top: auto;
+}
+/* Controles e indicadores (Bootstrap los adapta, pero puedes forzar) */
+.testimonios-seccion .carousel-control-prev-icon,
+.testimonios-seccion .carousel-control-next-icon {
+    background-color: rgba(var(--bs-body-color-rgb), 0.3); /* Fondo semitransparente basado en color de texto */
+    border-radius: 50%;
+    padding: 15px;
+}
+.testimonios-seccion .carousel-indicators [data-bs-target] {
+    background-color: rgba(var(--bs-body-color-rgb), 0.5);
+}
+.testimonios-seccion .carousel-indicators .active {
+    background-color: var(--bs-body-color);
+}
+
+/* --- FOOTER --- */
+footer {
+  /* background: var(--bs-secondary-bg); */ /* Bootstrap lo maneja con bg-dark */
+  /* color: var(--bs-body-color); */ /* Bootstrap lo maneja con text-light */
+  padding: 3rem 2rem;
+  border-top: 4px solid var(--color-actual-principal);
+  transition: border-color 0.3s;
+}
+/* Ajustes específicos para footer si bg-dark no es suficiente */
+[data-bs-theme="dark"] footer {
+    background-color: var(--color-secundario-dark) !important; /* Forzar tu color secundario oscuro */
+    color: var(--color-texto-dark) !important;
+}
+[data-bs-theme="light"] footer {
+    background-color: #e9ecef !important; /* Un gris claro para el footer en modo claro */
+    color: var(--color-texto-light) !important;
+}
+[data-bs-theme="light"] footer h5 {
+    color: var(--color-texto-light);
+}
+[data-bs-theme="light"] footer .text-muted {
+    color: var(--color-texto-secundario-light) !important;
+}
+[data-bs-theme="light"] footer hr {
+    border-top-color: rgba(0, 0, 0, 0.1);
+}
+[data-bs-theme="light"] footer .redes a {
+    color: var(--color-texto-light) !important;
+}
+
+
+/* Newsletter en Footer */
+.newsletter h5, .redes h5, .mapa h5 { /* Títulos del footer */
+    margin-bottom: 1rem;
+}
+.newsletter-form label { /* Label oculto */
+    /* font-weight: 500; */
+}
+.newsletter-form input[type="email"].form-control {
+  /* Bootstrap adapta colores, pero podemos asegurar los nuestros */
+  background-color: var(--color-actual-input-bg);
+  color: var(--color-actual-input-color);
+  border: 1px solid var(--color-actual-input-border);
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+.newsletter-form input[type="email"].form-control::placeholder {
+    color: var(--color-actual-texto-secundario);
+}
+.newsletter-form button[type="submit"].btn-primary {
+  /* Usa el color primario de Bootstrap, que ya definimos */
+  /* background: var(--color-actual-principal); */
+  /* border-color: var(--color-actual-principal); */
+  /* color: white; */
+  transition: background 0.3s, transform 0.2s, border-color 0.3s;
+}
+/* Spinner (Bootstrap lo adapta) */
+.spinner-border-sm {
+    width: 1rem;
+    height: 1rem;
+    border-width: .2em;
+    display: none; /* Oculto por defecto */
+    margin-left: 5px;
+}
+
+/* Redes Sociales en Footer */
+.redes a {
+  /* color: var(--bs-body-color); */ /* Hereda color */
+  text-decoration: none;
+  transition: transform 0.2s, color 0.3s;
+  display: inline-block;
+}
+.redes a:hover {
+  transform: scale(1.15);
+  color: var(--color-actual-principal); /* Color principal al hacer hover */
+}
+
+/* Mapa en Footer */
+.mapa iframe {
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  height: 200px;
+  display: block;
+  filter: grayscale(0.3); /* Mantenemos filtro inicial */
+  transition: filter 0.3s;
+}
+.mapa iframe:hover {
+    filter: grayscale(0);
+}
+/* Filtro opcional para invertir colores en modo oscuro si el mapa es claro */
+/*
+[data-bs-theme="dark"] .mapa iframe {
+   filter: invert(1) hue-rotate(180deg) grayscale(0.3);
+}
+[data-bs-theme="dark"] .mapa iframe:hover {
+   filter: invert(1) hue-rotate(180deg) grayscale(0);
+}
+*/
+
+/* --- AJUSTES RESPONSIVE --- */
+/* Mantenemos tus media queries, ya que son estructurales */
+@media (max-width: 992px) {
+    /* Ajustes navbar si son necesarios */
+}
+@media (max-width: 768px) {
+    body { padding-top: 56px; } /* Asegurar padding si el navbar colapsa diferente */
+    .clases, .testimonios-seccion, .contador, footer {
+        padding: 3rem 1.5rem;
+    }
+    footer {
+        /* grid-template-columns: 1fr; */ /* Bootstrap .row ya lo maneja */
+        text-align: center;
+    }
+}
+@media (max-width: 600px) {
+    .hero { height: 70vh; }
+    .clases h2, .testimonios-seccion h2 { font-size: 2rem; }
+    .contador { padding: 2rem 1rem; font-size: 1.8rem; }
+    .testimonios-seccion .carousel-item { padding: 20px 30px; }
+    footer { padding: 2rem 1rem; }
+}
+@media (max-width: 480px) {
+    /* Ajustes adicionales si son necesarios */
+}

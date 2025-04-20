@@ -1,0 +1,155 @@
+/* css/precios.css */
+
+/* --- Contenedor General --- */
+.planes-container {
+  padding: 2rem 0; /* Espacio interno */
+}
+.planes-container h1 {
+  color: var(--color-actual-principal); /* Usa variable dinámica */
+  font-weight: 700;
+}
+
+/* --- Toggle Mensual/Anual --- */
+.toggle-container {
+  font-weight: 500;
+}
+.toggle-container .form-check-input {
+  width: 3em; /* Hacer el switch un poco más grande */
+  height: 1.5em;
+  cursor: pointer;
+  /* Color del switch (Bootstrap lo adapta, pero podemos forzar) */
+  /* background-color: var(--bs-secondary); */
+  /* border-color: var(--bs-secondary); */
+}
+.toggle-container .form-check-input:checked {
+  background-color: var(--bs-success); /* Color verde cuando es anual */
+  border-color: var(--bs-success);
+}
+.toggle-container .badge {
+    vertical-align: middle; /* Alinear mejor el badge */
+}
+
+/* --- Tabla de Planes --- */
+.tabla-planes {
+  margin-top: 2rem; /* Espacio sobre la tabla */
+  border: 1px solid var(--bs-border-color); /* Borde general */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* Sombra suave */
+  border-radius: 8px; /* Bordes redondeados */
+  overflow: hidden; /* Para que el borde redondeado funcione */
+}
+
+/* Cabecera */
+.tabla-planes thead th {
+  padding: 1.5rem 1rem; /* Más padding en cabecera */
+  vertical-align: middle;
+  border-bottom-width: 2px; /* Borde inferior más grueso */
+  background-color: var(--bs-tertiary-bg); /* Fondo adaptable */
+  color: var(--bs-emphasis-color); /* Color de texto enfatizado */
+}
+.tabla-planes thead th.col-beneficios {
+    text-align: left; /* Alinear beneficios a la izquierda */
+    font-weight: 600;
+}
+.tabla-planes thead .precio {
+    color: var(--color-actual-principal); /* Color principal para el precio */
+}
+.tabla-planes thead .duracion {
+    font-size: 0.85rem;
+}
+
+/* Cuerpo de la tabla */
+.tabla-planes tbody th { /* Cabecera de fila (Beneficios) */
+  padding: 1rem 1.5rem; /* Padding */
+  font-weight: 500;
+  background-color: var(--bs-body-bg); /* Fondo adaptable */
+}
+.tabla-planes tbody td {
+  padding: 1rem;
+  vertical-align: middle;
+}
+.tabla-planes tbody tr:hover {
+    /* Bootstrap table-hover ya aplica un fondo */
+    /* background-color: var(--bs-tertiary-bg); */
+}
+
+/* Iconos Check/Cross */
+.tabla-planes .fa-check {
+  font-size: 1.2rem;
+}
+.tabla-planes .fa-times {
+  font-size: 1.2rem;
+  opacity: 0.7;
+}
+
+/* Columna Destacada */
+.tabla-planes .plan-destacado {
+  background-color: rgba(var(--bs-primary-rgb), 0.05); /* Fondo muy sutil del color primario */
+  border-left: 3px solid var(--color-actual-principal);
+  border-right: 3px solid var(--color-actual-principal);
+}
+.tabla-planes thead .plan-destacado {
+    border-top: 3px solid var(--color-actual-principal);
+}
+.tabla-planes tfoot .plan-destacado {
+    border-bottom: 3px solid var(--color-actual-principal);
+}
+.tabla-planes .plan-destacado .badge { /* Badge "Más Popular" */
+    position: absolute;
+    top: -10px; /* Ajustar posición */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.75rem;
+}
+.tabla-planes th.plan-destacado,
+.tabla-planes td.plan-destacado {
+    position: relative; /* Para posicionar el badge */
+}
+
+
+/* Pie de tabla (Botones) */
+.tabla-planes tfoot td {
+  padding: 1.5rem 1rem;
+  border-top: 1px solid var(--bs-border-color);
+}
+.tabla-planes tfoot .btn {
+    font-weight: 600;
+}
+
+/* Tooltips (Bootstrap los maneja, pero podemos ajustar apariencia) */
+.tooltip-inner {
+  background-color: var(--bs-emphasis-color); /* Fondo más oscuro/claro */
+  color: var(--bs-body-bg); /* Texto contrastante */
+  font-size: 0.85rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+}
+.tooltip .tooltip-arrow::before {
+  border-top-color: var(--bs-emphasis-color); /* Flecha del mismo color */
+  border-bottom-color: var(--bs-emphasis-color);
+  border-left-color: var(--bs-emphasis-color);
+  border-right-color: var(--bs-emphasis-color);
+}
+.fa-info-circle { /* Icono de info para tooltip */
+    cursor: help; /* Cursor de ayuda */
+}
+
+/* --- Media Queries --- */
+@media (max-width: 768px) {
+  .tabla-planes thead th,
+  .tabla-planes tbody th,
+  .tabla-planes tbody td,
+  .tabla-planes tfoot td {
+    padding: 0.8rem 0.5rem; /* Menos padding en móvil */
+    font-size: 0.9rem;
+  }
+  .tabla-planes thead .precio {
+      font-size: 1.1rem; /* Precio más pequeño */
+  }
+  .tabla-planes tfoot .btn {
+      font-size: 0.85rem;
+      padding: 0.5rem 0.8rem;
+  }
+  .fa-info-circle {
+      display: none; /* Ocultar icono de tooltip en móvil si molesta */
+  }
+}

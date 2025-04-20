@@ -1,0 +1,115 @@
+/* css/contacto.css */
+
+/* --- Contenido Principal: Formulario --- */
+.formulario-contacto {
+  padding: 3rem 2rem; /* Ajustar padding */
+  max-width: 750px; /* Ancho máximo del formulario */
+  margin: 2rem auto; /* Centrar y dar espacio arriba/abajo */
+  background-color: var(--bs-tertiary-bg); /* Usar variable adaptable */
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15); /* Sombra más sutil */
+  color: var(--bs-body-color); /* Usar color de texto adaptable */
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.formulario-contacto h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 1rem; /* Menos espacio */
+  color: var(--color-actual-principal); /* Título con color principal */
+  font-weight: 700;
+}
+.formulario-contacto p.text-muted { /* Estilo para el párrafo introductorio */
+    color: var(--bs-secondary-color) !important; /* Asegurar color secundario */
+}
+
+/* Formulario Bootstrap */
+#formularioContacto {
+  /* Bootstrap maneja el layout con .mb-3 */
+}
+
+/* Estilos para inputs y labels (complementando Bootstrap) */
+#formularioContacto .form-label {
+  font-weight: 600; /* Etiquetas un poco más gruesas */
+  margin-bottom: 0.5rem;
+  color: var(--bs-emphasis-color); /* Color enfatizado */
+}
+
+#formularioContacto .form-control,
+#formularioContacto .form-select {
+  /* Bootstrap maneja la mayoría de los estilos */
+  /* Podemos ajustar si es necesario */
+  /* background-color: var(--bs-body-bg); */ /* Fondo adaptable */
+  /* border-color: var(--bs-border-color); */ /* Borde adaptable */
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+/* Estilos focus (Bootstrap los maneja bien, pero podemos personalizar) */
+#formularioContacto .form-control:focus,
+#formularioContacto .form-select:focus {
+  border-color: var(--color-actual-principal);
+  box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.25); /* Sombra focus de Bootstrap */
+}
+
+/* Flecha para Select (Bootstrap la añade, pero podemos asegurar el color) */
+#formularioContacto .form-select {
+    /* background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23{color-variable}' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e"); */
+    /* Bootstrap 5.3 usa variables CSS para esto, debería funcionar bien */
+}
+
+/* Textarea */
+#formularioContacto textarea.form-control {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Botón de envío */
+#formularioContacto button[type="submit"] {
+  /* Clases btn btn-primary btn-lg ya aplican estilos base */
+  padding: 0.75rem 1.5rem; /* Ajustar padding si es necesario */
+  font-weight: 600;
+  transition: background-color 0.2s, border-color 0.2s, transform 0.2s;
+}
+#formularioContacto button[type="submit"]:hover {
+  transform: translateY(-2px); /* Ligero levantamiento */
+}
+
+/* Spinner dentro del botón */
+#formularioContacto .spinner-border-sm {
+    vertical-align: -0.125em; /* Alinear mejor con el texto */
+}
+
+/* --- Estilos Modo Claro/Oscuro (Adaptados a data-bs-theme) --- */
+/* La mayoría de los estilos deberían adaptarse automáticamente con las variables */
+/* de Bootstrap y las definidas en home.css (--bs-body-bg, --bs-tertiary-bg, etc.) */
+
+/* Ajuste específico si es necesario */
+[data-bs-theme="light"] .formulario-contacto {
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* Sombra un poco diferente en claro */
+}
+
+
+/* --- Media Queries (Ajustes Responsivos) --- */
+@media (max-width: 768px) {
+  .formulario-contacto {
+      padding: 2.5rem 1.5rem;
+      margin: 1.5rem auto;
+  }
+  .formulario-contacto h1 {
+      font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .formulario-contacto {
+      padding: 2rem 1rem;
+      margin: 1rem;
+      border-radius: 5px;
+  }
+  #formularioContacto .form-label {
+      font-size: 0.9rem;
+  }
+  #formularioContacto button[type="submit"] {
+      width: 100%; /* Botón ocupa todo el ancho en móvil */
+  }
+}

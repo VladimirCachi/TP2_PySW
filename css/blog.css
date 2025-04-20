@@ -1,0 +1,243 @@
+/* css/blog.css */
+
+/* --- Contenedor Principal --- */
+/* Padding ya aplicado en <main> con Bootstrap (py-5) */
+
+/* --- Filtros --- */
+.filters h2 {
+  color: var(--color-actual-principal);
+  font-weight: 600;
+}
+.filter-controls .btn-check:checked + .btn-outline-primary {
+  /* Estilo del botón activo */
+  background-color: var(--color-actual-principal);
+  border-color: var(--color-actual-principal);
+  color: #fff;
+}
+.filter-controls .btn-outline-primary {
+  /* Estilo normal del botón */
+  border-color: var(--color-actual-principal);
+  color: var(--color-actual-principal);
+  transition: background-color 0.2s, color 0.2s;
+}
+.filter-controls .btn-outline-primary:hover {
+  background-color: rgba(var(--bs-primary-rgb), 0.1);
+}
+[data-bs-theme="dark"] .filter-controls .btn-outline-primary {
+  color: var(--color-actual-principal);
+  border-color: var(--color-actual-principal);
+}
+[data-bs-theme="dark"] .filter-controls .btn-outline-primary:hover {
+  background-color: rgba(var(--bs-primary-rgb), 0.2);
+  color: var(--color-actual-principal);
+}
+
+
+/* --- Grid de Artículos (Estilo Revista) --- */
+.articles-grid {
+  display: grid;
+  /* Columnas automáticas, mínimo 300px */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem; /* Espacio entre artículos */
+}
+
+/* Tarjeta de Artículo */
+.article-card {
+  background-color: var(--bs-body-bg); /* Fondo adaptable */
+  border-radius: 10px;
+  overflow: hidden; /* Para que la imagen respete el borde */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex; /* Usar flex para estructura interna */
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.article-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.article-card img {
+  width: 100%;
+  height: 200px; /* Altura fija para la imagen */
+  object-fit: cover; /* Escala para cubrir */
+}
+
+.card-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Para que ocupe el espacio restante */
+}
+
+.card-content .tag {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 20px;
+  margin-bottom: 0.75rem;
+  align-self: flex-start; /* Alinear a la izquierda */
+  color: #fff; /* Texto blanco para tags */
+}
+/* Colores específicos para tags */
+.tag-entrenamiento { background-color: #dc3545; } /* Rojo Bootstrap */
+.tag-nutricion { background-color: #198754; } /* Verde Bootstrap */
+.tag-bienestar { background-color: #0d6efd; } /* Azul Bootstrap */
+
+.card-content h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--bs-emphasis-color); /* Color enfatizado */
+}
+
+.card-content p {
+  font-size: 0.95rem;
+  color: var(--bs-secondary-color); /* Color secundario */
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  flex-grow: 1; /* Empuja el botón hacia abajo */
+}
+
+.card-content .read-more {
+  color: var(--color-actual-principal);
+  text-decoration: none;
+  font-weight: 600;
+  align-self: flex-start; /* Alinear a la izquierda */
+  transition: color 0.2s;
+}
+.card-content .read-more:hover {
+  color: var(--bs-link-hover-color); /* Color hover del link */
+}
+.card-content .read-more i {
+  margin-left: 0.3rem;
+  transition: transform 0.2s ease-out;
+}
+.card-content .read-more:hover i {
+  transform: translateX(4px);
+}
+
+/* Artículo Destacado (Opcional: hacerlo más grande) */
+.article-card.featured {
+  /* grid-column: span 2; */ /* Ocupa dos columnas (si el grid lo permite) */
+  /* grid-row: span 2; */    /* Ocupa dos filas */
+  /* Ajustar estilos si es necesario para tamaño mayor */
+}
+/* Ajuste para modo claro/oscuro */
+[data-bs-theme="light"] .article-card {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+[data-bs-theme="light"] .article-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+
+/* --- Sección de Comentarios --- */
+.comments-section h2 {
+  color: var(--bs-emphasis-color);
+  font-weight: 600;
+}
+
+#comments-list .comment {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--bs-border-color-translucent);
+}
+#comments-list .comment:last-child {
+  border-bottom: none;
+}
+
+.comment-avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: var(--bs-secondary); /* Color de fondo por defecto */
+  color: var(--bs-light); /* Color de texto por defecto */
+  display: flex; /* Cambiado a flex para centrar con ::before */
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1rem;
+  flex-shrink: 0; /* Evita que se encoja */
+  position: relative; /* Necesario para el pseudo-elemento */
+  overflow: hidden; /* Para asegurar que el contenido no se salga */
+  text-transform: uppercase; /* Asegurar mayúsculas */
+}
+
+/* Pseudo-elemento para mostrar las iniciales */
+.comment-avatar::before {
+  content: attr(data-initials); /* Toma el contenido del atributo data-initials */
+  position: absolute; /* Posicionamiento absoluto dentro del avatar */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centra perfectamente */
+  line-height: 1; /* Asegura centrado vertical */
+}
+
+/* Colores alternativos para avatares (se aplican con JS) */
+.avatar-color-1 { background-color: #0d6efd; } /* Azul */
+.avatar-color-2 { background-color: #198754; } /* Verde */
+.avatar-color-3 { background-color: #ffc107; color: #333 !important; } /* Amarillo */
+
+.comment-content .comment-author {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: var(--bs-emphasis-color);
+}
+.comment-content .comment-text {
+  font-size: 0.95rem;
+  color: var(--bs-secondary-color);
+  margin-bottom: 0;
+}
+
+/* Formulario de Comentario */
+.comment-form {
+  background-color: var(--bs-tertiary-bg);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-top: 2rem;
+}
+.comment-form h3 {
+  font-weight: 600;
+  color: var(--bs-emphasis-color);
+}
+.comment-form .form-control:focus {
+  border-color: var(--color-actual-principal);
+  box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.25);
+}
+
+
+/* --- Scroll Reveal --- */
+.reveal-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  will-change: opacity, transform; /* Optimización para el navegador */
+}
+.reveal-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Media Queries --- */
+@media (max-width: 768px) {
+  .articles-grid {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+  }
+  .article-card.featured {
+      grid-column: span 1; /* Resetear span en móvil */
+      grid-row: span 1;
+  }
+  .filters h2 {
+      font-size: 1.5rem;
+  }
+  .filter-controls .btn {
+      font-size: 0.9rem;
+  }
+  .comments-section {
+      margin-top: 3rem;
+      padding-top: 3rem;
+  }
+}

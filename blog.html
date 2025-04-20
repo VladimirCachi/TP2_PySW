@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Fitness - FitLife</title> <!-- Título actualizado -->
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Font Awesome (para iconos) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Tus estilos personalizados -->
+    <!-- home.css DEBE ir primero para las variables y estilos base -->
+    <link rel="stylesheet" href="css/home.css">
+    <!-- blog.css DESPUÉS para estilos específicos de esta página -->
+    <link rel="stylesheet" href="css/blog.css">
+
+</head>
+<!-- Añadimos data-bs-theme="light" por defecto, JS lo manejará -->
+<body data-bs-theme="light">
+
+    <!-- ================================================== -->
+    <!-- HEADER (Copiado de index.html)                     -->
+    <!-- ================================================== -->
+    <header>
+        <!-- Botón Modo Oscuro/Claro -->
+        <button id="botonModo" class="boton-modo" aria-label="Cambiar modo">
+          <i class="fas fa-moon"></i> <!-- Icono inicial luna (JS lo cambiará si es necesario) -->
+        </button>
+
+        <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+           <div class="container">
+            <a class="navbar-brand logo" href="index.html">FitLife</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                  <!-- Marcar 'Inicio' como no activo en esta página -->
+                  <a class="nav-link" href="index.html">Inicio</a>
+                </li>
+                <!-- Mega Menú (Dropdown) con los enlaces principales -->
+                <li class="nav-item dropdown">
+                  <!-- Marcar 'Explorar' como activo si estamos en una de sus páginas -->
+                  <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-current="page">
+                    Explorar
+                  </a>
+                  <ul class="dropdown-menu">
+                     <!-- Marcar 'Blog' como activo dentro del dropdown -->
+                     <li><a class="dropdown-item" href="clases.html">Clases</a></li>
+                     <li><a class="dropdown-item" href="entrenadores.html">Entrenadores</a></li>
+                     <li><a class="dropdown-item" href="precios.html">Precios</a></li>
+                     <li><a class="dropdown-item active" href="blog.html">Blog</a></li>
+                     <li><hr class="dropdown-divider"></li>
+                     <li><a class="dropdown-item" href="contacto.html">Contacto</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+    </header>
+    <!-- ================================================== -->
+    <!-- FIN HEADER                                         -->
+    <!-- ================================================== -->
+
+
+    <!-- ================================================== -->
+    <!-- CONTENIDO PRINCIPAL DEL BLOG                       -->
+    <!-- ================================================== -->
+    <main class="container py-5">
+
+        <!-- Filtros / Tags -->
+        <section class="filters text-center mb-5">
+            <h2 class="mb-4">Explora Contenido</h2>
+            <div class="filter-controls btn-group" role="group" aria-label="Filtros de categoría">
+                <input type="radio" class="btn-check" name="category-filter" id="filter-todos" autocomplete="off" value="todos" checked>
+                <label class="btn btn-outline-primary" for="filter-todos">Todos</label>
+
+                <input type="radio" class="btn-check" name="category-filter" id="filter-entrenamiento" value="entrenamiento" autocomplete="off">
+                <label class="btn btn-outline-primary" for="filter-entrenamiento">Entrenamiento</label>
+
+                <input type="radio" class="btn-check" name="category-filter" id="filter-nutricion" value="nutricion" autocomplete="off">
+                <label class="btn btn-outline-primary" for="filter-nutricion">Nutrición</label>
+
+                <input type="radio" class="btn-check" name="category-filter" id="filter-bienestar" value="bienestar" autocomplete="off">
+                <label class="btn btn-outline-primary" for="filter-bienestar">Bienestar</label>
+            </div>
+        </section>
+
+        <!-- Grid de Artículos (Usando CSS Grid) -->
+        <section class="articles-grid">
+            <!-- Artículo 1 -->
+            <article class="article-card reveal-item" data-category="entrenamiento">
+                <img src="assets/img/rutina_piernas.webp" alt="Artículo sobre entrenamiento">
+                <div class="card-content">
+                    <span class="tag tag-entrenamiento">Entrenamiento</span>
+                    <h3>La rutina de piernas para ganar músculo.</h3>
+                    <p>Empieza tu viaje fitness con esta rutina completa diseñada para activar todos tus músculos.</p>
+                    <a href="https://www.vitonica.com/entrenamiento/rutina-completa-para-entrenar-tus-piernas-gimnasio" class="read-more" target="_blank" rel="noopener noreferrer">Leer más <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- Artículo 2 (Destacado) -->
+            <article class="article-card featured reveal-item" data-category="nutricion">
+                <img src="assets/img/perdida de cabello.webp" alt="Artículo destacado sobre nutrición">
+                 <div class="card-content">
+                    <span class="tag tag-nutricion">Nutrición</span>
+                    <h3>Ayuno intermitente y su efecto en el cabello.</h3>
+                    <p>Como todo, el ayuno intermitente también tiene su cara B y puede no ser apto para todos.</p>
+                    <a href="https://www.vitonica.com/dietas/nos-contaron-muchas-ventajas-ayuno-intermitente-se-les-olvido-pequeno-detalle-puede-dejarnos-calvos" class="read-more" target="_blank" rel="noopener noreferrer">Leer más <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- Artículo 3 -->
+            <article class="article-card reveal-item" data-category="bienestar">
+                <img src="assets/img/insomnio.webp" alt="Artículo sobre Bienestar">
+                 <div class="card-content">
+                    <span class="tag tag-bienestar">Bienestar</span>
+                    <h3>Lo que nunca debes hacer cuando no puedes dormir.</h3>
+                    <p>Muchas personas tienen comportamientos cuando no pueden dormir que aumentan aún más el insomnio.</p>
+                    <a href="https://www.vitonica.com/wellness/que-nunca-debes-hacer-cuando-no-puedes-dormir-expertos-sueno" class="read-more" target="_blank" rel="noopener noreferrer">Leer más <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- Artículo 4 -->
+            <article class="article-card reveal-item" data-category="entrenamiento">
+                <img src="assets/img/rutina_brazos.webp" alt="Artículo sobre Cardio">
+                 <div class="card-content">
+                    <span class="tag tag-entrenamiento">Entrenamiento</span>
+                    <h3>La rutina de brazos para ganar músculo.</h3>
+                    <p>Una rutina para entrenar tus brazos al completo en el gimnasio.</p>
+                    <a href="https://www.vitonica.com/entrenamiento/rutina-para-entrenar-tus-brazos-al-completo-gimnasio" class="read-more" target="_blank" rel="noopener noreferrer">Leer más <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- Artículo 5 -->
+            <article class="article-card reveal-item" data-category="bienestar">
+                <img src="assets/img/tatuajes.webp" alt="Artículo sobre Bienestar">
+                 <div class="card-content">
+                    <span class="tag tag-bienestar">Bienestar</span>
+                    <h3>Tatuajes y cáncer: la desconocida asociación.</h3>
+                    <p>¿Pueden los tatuajes aumentar el riesgo de cáncer? Esto dice la ciencia más reciente.</p>
+                    <a href="https://www.vitonica.com/wellness/tatuajes-cancer-asociacion-desconocida-que-cada-vez-cuenta-evidencia-cientifica" class="read-more" target="_blank" rel="noopener noreferrer">Leer más <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- Artículo 6 -->
+             <article class="article-card reveal-item" data-category="nutricion">
+                <img src="assets/img/lata_pescado.webp" alt="Artículo sobre Recetas Saludables">
+                 <div class="card-content">
+                    <span class="tag tag-nutricion">Nutrición</span>
+                    <h3>Pescado en conserva: ¿saludable o no?</h3>
+                    <p>Tienen más sal que el pescado fresco y pueden también tener más grasas y otros añadidos poco sanos.</p>
+                    <a href="https://www.vitonica.com/alimentos/luis-zamora-nutricionista-pescado-conserva-saludable-no-podemos-solo-comer-pescado-lata" class="read-more" target="_blank" rel="noopener noreferrer">Leer más <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- Artículo 7 -->
+            <article class="article-card reveal-item" data-category="entrenamiento">
+                <img src="assets/img/press_banca.webp" alt="Artículo sobre Press Banca">
+                 <div class="card-content">
+                    <span class="tag tag-entrenamiento">Entrenamiento</span>
+                    <h3>Mejora tus marcas en el press de banca.</h3>
+                    <p>El press de banca es el ejercicio estrella para medir la fuerza de empuje del tren superior.</p>
+                    <a href="https://www.vitonica.com/entrenamiento/mejores-ejercicios-para-destruir-tus-marcas-press-banca-ninguno-pecho" class="read-more" target="_blank" rel="noopener noreferrer">Leer más <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- Artículo 8 -->
+            <article class="article-card reveal-item" data-category="bienestar">
+                <img src="assets/img/bebidas.webp" alt="Artículo sobre Alcohol y Sueño">
+                 <div class="card-content">
+                    <span class="tag tag-bienestar">Bienestar</span>
+                    <h3>Alcohol antes de dormir: ¿Buena idea?</h3>
+                    <p>Puede elevar la frecuencia cardíaca y por ello, tener severas consecuencias sobre el descanso.</p>
+                    <a href="https://www.vitonica.com/prevencion/copita-antes-dormir-para-conciliar-sueno-tiene-precio-muy-alto-va-alla-calorias-vacias" class="read-more" target="_blank" rel="noopener noreferrer">Leer más <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </section>
+
+        <!-- Sección de Comentarios -->
+        <section class="comments-section mt-5 pt-5 border-top">
+            <h2 class="text-center mb-4">Comentarios Recientes</h2>
+
+            <!-- Lista de Comentarios -->
+            <div id="comments-list" class="mb-4">
+                <!-- Comentario 1 -->
+                <div class="comment reveal-item">
+                    <div class="comment-avatar" data-initials="AF"></div>
+                    <div class="comment-content">
+                        <p class="comment-author">Ana Fernández</p>
+                        <p class="comment-text">¡Excelente artículo sobre mindfulness! Justo lo que necesitaba.</p>
+                    </div>
+                </div>
+                <!-- Comentario 2 -->
+                <div class="comment reveal-item">
+                    <div class="comment-avatar" data-initials="CG"></div>
+                    <div class="comment-content">
+                        <p class="comment-author">Carlos Gómez</p>
+                        <p class="comment-text">La rutina full body es genial para empezar. ¿Alguna recomendación para avanzar?</p>
+                    </div>
+                </div>
+                <!-- Comentario 3 -->
+                 <div class="comment reveal-item">
+                    <div class="comment-avatar" data-initials="LM"></div>
+                    <div class="comment-content">
+                        <p class="comment-author">Laura Martínez</p>
+                        <p class="comment-text">Me encantaron las ideas de batidos, ¡el de frutos rojos es mi favorito!</p>
+                    </div>
+                </div>
+                <!-- Nuevos comentarios se añadirán aquí por JS -->
+            </div>
+
+            <!-- Formulario para añadir comentario -->
+            <form class="comment-form needs-validation" id="comment-form" novalidate>
+                <h3 class="mb-3">Deja tu comentario</h3>
+                <div class="mb-3">
+                    <label for="comment-name" class="form-label">Tu nombre</label>
+                    <input type="text" class="form-control" id="comment-name" placeholder="Nombre Apellido" required minlength="3">
+                    <div class="invalid-feedback">Ingresa tu nombre (mínimo 3 caracteres).</div>
+                </div>
+                <div class="mb-3">
+                    <label for="comment-text" class="form-label">Tu comentario</label>
+                    <textarea class="form-control" id="comment-text" placeholder="Escribe tu comentario aquí..." rows="4" required minlength="5"></textarea>
+                    <div class="invalid-feedback">Escribe un comentario (mínimo 5 caracteres).</div>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar Comentario</button>
+            </form>
+        </section>
+
+    </main>
+    <!-- ================================================== -->
+    <!-- FIN CONTENIDO PRINCIPAL                            -->
+    <!-- ================================================== -->
+
+
+    <!-- ================================================== -->
+    <!-- FOOTER (Copiado de index.html)                     -->
+    <!-- ================================================== -->
+    <footer class="bg-dark text-light py-5"> <!-- Clases Bootstrap para estilo base -->
+        <div class="container">
+          <div class="row">
+            <!-- Newsletter Form -->
+            <div class="col-md-4 mb-4 mb-md-0">
+              <h5>Suscribite al Newsletter</h5>
+              <form class="newsletter-form needs-validation" id="newsletterForm" novalidate>
+                <div class="mb-3">
+                  <label for="email-newsletter" class="form-label visually-hidden">Tu correo</label>
+                  <input type="email" class="form-control" id="email-newsletter" placeholder="Tu correo electrónico" required>
+                  <div class="invalid-feedback">
+                    Por favor, ingresa un correo válido.
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                  Suscribirme
+                  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                </button>
+                 <div id="newsletter-response" class="mt-2" style="display: none;"></div>
+              </form>
+            </div>
+
+            <!-- Redes Sociales -->
+            <div class="col-md-4 mb-4 mb-md-0 text-center">
+              <h5>Síguenos</h5>
+              <div class="redes">
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-light me-3 fs-4">
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="text-light fs-4">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Mapa -->
+            <div class="col-md-4">
+              <h5>Ubicación</h5>
+              <div class="mapa ratio ratio-16x9">
+                <iframe
+                  title="Ubicación del Gimnasio"
+                  src="https://www.openstreetmap.org/export/embed.html?bbox=-65.3%2C-24.2%2C-65.2%2C-24.1&layer=mapnik"
+                  style="border:0;"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+              </div>
+            </div>
+          </div>
+          <hr class="my-4">
+          <p class="text-center text-muted small">&copy; <span id="currentYear"></span> FitLife Gimnasio. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <!-- ================================================== -->
+    <!-- FIN FOOTER                                         -->
+    <!-- ================================================== -->
+
+
+    <!-- jQuery (primero) -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap Bundle JS (incluye Popper) (después de jQuery) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <!-- Tu script home.js (para modo oscuro y footer) -->
+    <script src="js/home.js"></script>
+    <!-- Tu script específico blog.js (para filtros, comentarios, scroll) -->
+    <script src="js/blog.js"></script>
+
+</body>
+</html>

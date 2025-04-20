@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entrenadores - Gimnasio FitLife</title> <!-- Título actualizado -->
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <!-- Font Awesome (para iconos) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Tus estilos personalizados -->
+  <!-- home.css DEBE ir primero para las variables y estilos base -->
+  <link rel="stylesheet" href="css/home.css">
+  <!-- entrenadores.css DESPUÉS para estilos específicos de esta página -->
+  <link rel="stylesheet" href="css/entrenadores.css">
+
+</head>
+<!-- Añadimos data-bs-theme="light" por defecto, JS lo manejará -->
+<body data-bs-theme="light">
+
+  <!-- ================================================== -->
+  <!-- HEADER (Copiado de index.html)                     -->
+  <!-- ================================================== -->
+  <header>
+      <!-- Botón Modo Oscuro/Claro -->
+      <button id="botonModo" class="boton-modo" aria-label="Cambiar modo">
+        <i class="fas fa-moon"></i> <!-- Icono inicial luna (JS lo cambiará si es necesario) -->
+      </button>
+
+      <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+         <div class="container">
+          <a class="navbar-brand logo" href="index.html">FitLife</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <!-- Marcar 'Inicio' como no activo en esta página -->
+                <a class="nav-link" href="index.html">Inicio</a>
+              </li>
+              <!-- Mega Menú (Dropdown) con los enlaces principales -->
+              <li class="nav-item dropdown">
+                <!-- Marcar 'Explorar' como activo si estamos en una de sus páginas -->
+                <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-current="page">
+                  Explorar
+                </a>
+                <ul class="dropdown-menu">
+                   <!-- Marcar 'Entrenadores' como activo dentro del dropdown -->
+                   <li><a class="dropdown-item" href="clases.html">Clases</a></li>
+                   <li><a class="dropdown-item active" href="entrenadores.html">Entrenadores</a></li>
+                   <li><a class="dropdown-item" href="precios.html">Precios</a></li>
+                   <li><a class="dropdown-item" href="blog.html">Blog</a></li>
+                   <li><hr class="dropdown-divider"></li>
+                   <li><a class="dropdown-item" href="contacto.html">Contacto</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+  </header>
+  <!-- ================================================== -->
+  <!-- FIN HEADER                                         -->
+  <!-- ================================================== -->
+
+
+  <!-- ================================================== -->
+  <!-- CONTENIDO PRINCIPAL DE ENTRENADORES                -->
+  <!-- ================================================== -->
+  <main class="container contenido-entrenadores py-5">
+    <h1 class="text-center mb-5">Nuestro Equipo de Entrenadores</h1>
+
+    <!-- Grid de Entrenadores con Bootstrap -->
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 grid-entrenadores">
+
+      <!-- Tarjeta Entrenador 1 -->
+      <div class="col">
+        <div class="card-entrenador">
+          <div class="card-inner">
+            <div class="card-front card card-body text-center">
+              <img src="assets/img/entrenador1.jpg" alt="Tomas Masa" class="img-fluid rounded-circle mb-3 mx-auto" style="width: 150px; height: 150px; object-fit: cover;">
+              <h3 class="h5">Tomas Masa</h3>
+              <p class="text-muted small">Especialista en fuerza y acondicionamiento.</p>
+              <span class="ver-mas-indicador mt-auto"><i class="fas fa-rotate"></i> Girar para ver más</span>
+            </div>
+            <div class="card-back card card-body">
+              <h4 class="h6 text-center mb-3">Tomas Masa</h4>
+              <p class="small mb-3">Más de 10 años ayudando a atletas a alcanzar su máximo potencial. Certificado en NSCA-CSCS.</p>
+              <h5 class="small fw-bold">Habilidades:</h5>
+              <div class="skills mb-3">
+                <div class="skill mb-2">
+                  <span class="skill-label small">Fuerza</span>
+                  <div class="progress" role="progressbar" style="height: 10px;">
+                    <div class="progress-bar bg-danger" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+                  </div>
+                </div>
+                <div class="skill mb-2">
+                  <span class="skill-label small">Hipertrofia</span>
+                  <div class="progress" role="progressbar" style="height: 10px;">
+                    <div class="progress-bar bg-warning" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+                  </div>
+                </div>
+                <div class="skill">
+                  <span class="skill-label small">Acondicionamiento</span>
+                  <div class="progress" role="progressbar" style="height: 10px;">
+                    <div class="progress-bar bg-success" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+                  </div>
+                </div>
+              </div>
+              <h5 class="small fw-bold">Rating:</h5>
+              <div class="rating rating-5 text-warning">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta Entrenador 2 -->
+      <div class="col">
+        <div class="card-entrenador">
+          <div class="card-inner">
+            <div class="card-front card card-body text-center">
+              <img src="assets/img/entrenador3.jpg" alt="La Locomotora Oliveras" class="img-fluid rounded-circle mb-3 mx-auto" style="width: 150px; height: 150px; object-fit: cover;">
+              <h3 class="h5">"La Locomotora"</h3>
+              <p class="text-muted small">Instructora de boxeo, yoga y pilates.</p>
+              <span class="ver-mas-indicador mt-auto"><i class="fas fa-rotate"></i> Girar para ver más</span>
+            </div>
+            <div class="card-back card card-body">
+              <h4 class="h6 text-center mb-3">"La Locomotora"</h4>
+              <p class="small mb-3">Combina la intensidad del boxeo con la calma del yoga para un enfoque integral. Ex-boxeadora profesional.</p>
+              <h5 class="small fw-bold">Habilidades:</h5>
+              <div class="skills mb-3">
+                <div class="skill mb-2">
+                  <span class="skill-label small">Boxeo</span>
+                  <div class="progress" role="progressbar" style="height: 10px;">
+                    <div class="progress-bar bg-success" 
+                      role="progressbar"
+                      aria-valuenow="85" 
+                      aria-valuemin="0" 
+                      aria-valuemax="100"
+                      style="width: 0%">
+                    <!-- El texto se llenará por JS -->
+                  </div>
+                  </div>
+                </div>
+                <div class="skill mb-2">
+                  <span class="skill-label small">Yoga/Pilates</span>
+                  <div class="progress" role="progressbar" style="height: 10px;">
+                    <div class="progress-bar bg-info" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+                  </div>
+                </div>
+                <div class="skill">
+                  <span class="skill-label small">Flexibilidad</span>
+                  <div class="progress" role="progressbar" style="height: 10px;">
+                    <div class="progress-bar bg-success" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+                  </div>
+                </div>
+              </div>
+              <h5 class="small fw-bold">Rating:</h5>
+              <div class="rating rating-4 text-warning">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta Entrenador 3 -->
+      <div class="col">
+        <div class="card-entrenador">
+          <div class="card-inner">
+            <div class="card-front card card-body text-center">
+              <img src="assets/img/entrenador2.jpg" alt="Victor Melida" class="img-fluid rounded-circle mb-3 mx-auto" style="width: 150px; height: 150px; object-fit: cover;">
+              <h3 class="h5">Victor Melida</h3>
+              <p class="text-muted small">Entrenamiento funcional y pérdida de peso.</p>
+              <span class="ver-mas-indicador mt-auto"><i class="fas fa-rotate"></i> Girar para ver más</span>
+            </div>
+            <div class="card-back card card-body">
+              <h4 class="h6 text-center mb-3">Victor Melida</h4>
+              <p class="small mb-3">Enfoque en cambios de hábitos sostenibles y entrenamiento adaptado a tus objetivos de composición corporal.</p>
+              <h5 class="small fw-bold">Habilidades:</h5>
+              <div class="skills mb-3">
+                <div class="skill mb-2">
+                  <span class="skill-label small">Funcional</span>
+                  <div class="progress" role="progressbar" style="height: 10px;">
+                    <div class="progress-bar bg-primary" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+                  </div>
+                </div>
+                <div class="skill mb-2">
+                  <span class="skill-label small">Pérdida de Peso</span>
+                  <div class="progress" role="progressbar" style="height: 10px;">
+                    <div class="progress-bar bg-success" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+                  </div>
+                </div>
+                <div class="skill">
+                  <span class="skill-label small">Nutrición Deportiva</span>
+                  <div class="progress" role="progressbar" style="height: 10px;">
+                    <div class="progress-bar bg-info" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+                  </div>
+                </div>
+              </div>
+              <h5 class="small fw-bold">Rating:</h5>
+              <div class="rating rating-4 text-warning">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Añade más tarjetas de entrenadores aquí si es necesario -->
+
+    </div>
+  </main>
+  <!-- ================================================== -->
+  <!-- FIN CONTENIDO PRINCIPAL                            -->
+  <!-- ================================================== -->
+
+
+  <!-- ================================================== -->
+  <!-- FOOTER (Copiado de index.html)                     -->
+  <!-- ================================================== -->
+  <footer class="bg-dark text-light py-5"> <!-- Clases Bootstrap para estilo base -->
+      <div class="container">
+        <div class="row">
+          <!-- Newsletter Form -->
+          <div class="col-md-4 mb-4 mb-md-0">
+            <h5>Suscribite al Newsletter</h5>
+            <form class="newsletter-form needs-validation" id="newsletterForm" novalidate>
+              <div class="mb-3">
+                <label for="email-newsletter" class="form-label visually-hidden">Tu correo</label>
+                <input type="email" class="form-control" id="email-newsletter" placeholder="Tu correo electrónico" required>
+                <div class="invalid-feedback">
+                  Por favor, ingresa un correo válido.
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary">
+                Suscribirme
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+              </button>
+               <div id="newsletter-response" class="mt-2" style="display: none;"></div>
+            </form>
+          </div>
+
+          <!-- Redes Sociales -->
+          <div class="col-md-4 mb-4 mb-md-0 text-center">
+            <h5>Síguenos</h5>
+            <div class="redes">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-light me-3 fs-4">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="text-light fs-4">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Mapa -->
+          <div class="col-md-4">
+            <h5>Ubicación</h5>
+            <div class="mapa ratio ratio-16x9">
+              <iframe
+                title="Ubicación del Gimnasio"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=-65.3%2C-24.2%2C-65.2%2C-24.1&layer=mapnik"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+          </div>
+        </div>
+        <hr class="my-4">
+        <p class="text-center text-muted small">&copy; <span id="currentYear"></span> FitLife Gimnasio. Todos los derechos reservados.</p>
+      </div>
+  </footer>
+  <!-- ================================================== -->
+  <!-- FIN FOOTER                                         -->
+  <!-- ================================================== -->
+
+
+  <!-- jQuery (primero) -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+  <!-- Bootstrap Bundle JS (incluye Popper) (después de jQuery) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+  <!-- Tu script home.js (para modo oscuro y footer) -->
+  <script src="js/home.js"></script>
+  <!-- Tu script específico entrenadores.js (para animaciones y flip) -->
+  <script src="js/entrenadores.js"></script>
+
+</body>
+</html>
